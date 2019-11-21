@@ -1,0 +1,28 @@
+<?php
+
+function week11_menu(){
+    $items = array();
+    $items ['week11']= array(
+        'title' => 'Week 11',
+        'page callback' => 'week11_homework',
+        'access callback' => true,
+    );
+    return $items;
+}
+
+function week11_homework(){
+    return t('This is homework from week 11');
+}
+
+function week11_permission()
+{
+    return array(
+        'week11' => array(
+            'title' =>t('week 11'),
+            'description' => t('Allow access to week 11 homework'),
+        ),
+    );
+}
+function week11_menu_alter(&$items){
+    $items['path']['access arguments'] = array('week11');
+}
